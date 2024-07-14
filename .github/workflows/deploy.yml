@@ -41,3 +41,12 @@ jobs:
             --target-port 8000 \
             --ingress 'external' \
             --env-vars 'APP_SETTING=my-setting'
+          
+          az containerapp create \
+            --name amir-mart-product-service \
+            --resource-group myresourcegroup \
+            --environment mycontainerappenv \
+            --image ${{ secrets.DOCKER_HUB_USERNAME }}/product-mart-api:latest \
+            --target-port 8004 \
+            --ingress 'external' \
+            --env-vars 'APP_SETTING=my-setting'
